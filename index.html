@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PostBoard · Content calendar for agencies</title>
+<meta name="description" content="PostBoard is a shared content calendar with client approvals for teams that manage several brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><span class="brand__mark"></span><b>PostBoard</b></div>
+  <div class="brands" id="brandChips" role="group" aria-label="Filter by brand"></div>
+  <button class="btn btn--primary" id="newPostBtn">+ New post</button>
+</header>
+
+<main class="layout">
+  <section class="cal-wrap">
+    <div class="cal-head">
+      <div class="month-nav">
+        <button class="icon-btn" id="prevBtn" aria-label="Previous month">‹</button>
+        <h1 id="monthTitle"></h1>
+        <button class="icon-btn" id="nextBtn" aria-label="Next month">›</button>
+        <button class="btn btn--ghost" id="todayBtn">Today</button>
+      </div>
+      <div class="legend"><span><i class="st st--draft"></i>Draft</span><span><i class="st st--review"></i>In review</span><span><i class="st st--approved"></i>Approved</span><span><i class="st st--published"></i>Published</span></div>
+    </div>
+    <div class="dow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="cal" id="cal"></div>
+    <p class="hint">Drag a post to another day to reschedule it. Click an empty day to plan a post there.</p>
+  </section>
+
+  <aside class="side">
+    <div class="stats" id="stats"></div>
+    <div class="panel">
+      <h2>Waiting for client approval</h2>
+      <ul id="queue"></ul>
+    </div>
+  </aside>
+</main>
+
+<dialog id="postDialog">
+  <form id="postForm" method="dialog">
+    <h2 id="dialogTitle">New post</h2>
+    <div class="grid">
+      <label>Brand<select name="brand" id="brandSel"></select></label>
+      <label>Platform<select name="platform"><option>Instagram</option><option>TikTok</option><option>Facebook</option><option>LinkedIn</option></select></label>
+      <label>Date<input name="date" type="date" required></label>
+      <label>Time<input name="time" type="time" required value="19:00"></label>
+      <label>Format<select name="format"><option>Reel</option><option>Carousel</option><option>Single image</option><option>Story</option></select></label>
+      <label>Status<select name="status"><option value="draft">Draft</option><option value="review">In review</option><option value="approved">Approved</option><option value="published">Published</option></select></label>
+      <label class="full">Caption<textarea name="caption" rows="3" maxlength="2200" required placeholder="Write the caption"></textarea><small class="count" id="count">0 / 2200</small></label>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn--danger" id="deletePostBtn">Delete</button>
+      <span class="spacer"></span>
+      <button type="button" class="btn" data-close>Cancel</button>
+      <button class="btn btn--primary">Save post</button>
+    </div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

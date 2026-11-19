@@ -1,0 +1,14 @@
+{
+  "name": "postboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A shared content calendar for teams that run social media for several brands, with a client approval step before anything is posted.",
+  "type": "module",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "test": "node --test tests/*.test.js"
+  },
+  "author": "Muhammad Usman Shabbir (https://usman1905.github.io)",
+  "license": "MIT",
+  "engines": { "node": ">=18" }
+}
